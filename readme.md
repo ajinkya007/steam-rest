@@ -1,16 +1,15 @@
-about this project
+About this project
 ==================
 
-this project contains a set of examples and tests for the RESTful API for the
-sTeam server.
+This project contains a set of examples and tests for the RESTful API for the sTeam server.
 
-the code is written in coffeescript and needs node.js only for coffeescript translation.  
-deployment can be done as static javascript files, and does not need any kind of dynamic server for the front-end.
+The code is written in coffeescript and needs node.js only for coffeescript translation.  
+Deployment can be done as static javascript files, and does not need any kind of dynamic server for the front-end.
 
-the back-end is a RESTful API written for the sTeam server as used by techgrind.asia
+The back-end is a RESTful API written for the sTeam server as used by techgrind.asia
 
 
-development instructions
+Development instructions
 ========================
 
 step 1: install node.js
@@ -27,7 +26,7 @@ step 3: install node packages:
 
     npm install
 
-this installs all dependencies (including coffee) for our project into  the project's node_modules directory based on the 'package.json' file
+This installs all dependencies (including coffee) for our project into  the project's node_modules directory based on the 'package.json' file
 
 
 step 4: start the server
@@ -44,33 +43,33 @@ so we can just say
 
     coffee scripts/server.coffee
 
-if the server is working you'll see:
+If the server is working you'll see:
 
-    Listening on port 8000
+    Listening on port 7000
 
 
-how to contribute your changes
+How to contribute your changes
 ==============================
 
-fork the project on github
+Fork the project on github
 
-clone the forked project to your computer
+Clone the forked project to your computer
 
     git clone https://github.com/<your name>/steam-rest
 
-follow the instructions above to set up your environment
+Follow the instructions above to set up your environment
 
-when you are properly set up you should be able to load http://localhost:8000/ in your browser
+When you are properly set up you should be able to load http://localhost:8000/ in your browser
 
 each example should be a standalone application, so copy one example, and modify it.
 
-push changes to your repo frequently.
+Push changes to your repo frequently.
 
-when ready please file a merge request or notify the project developers about your contribution
+When ready please file a merge request or notify the project developers about your contribution
 
 
 =======
-testing
+Testing
 =======
 
 [FrisbyJS](http://frisbyjs.com/) is used to test the API. It is run through [Jasmine](http://jasmine.github.io/) and is based on [nodejs](http://nodejs.org/).
@@ -78,12 +77,12 @@ testing
 Once you have nodejs installed, run the following statement to install Frisby and Jasmine:
 
 ```
-npm install -g jasmine-node frisby
+npm install jasmine-node frisby
 ```
 
 Then execute the test by:
 
 ```
 cd project/directory
-jasmine-node tests/
+jasmine-node test/
 ```
