@@ -15,7 +15,7 @@ function testRegistrationDate (rd) {
 // Registration Tests
 
 frisby.create('Testing Registration API calls')
-  .post('http://dev-back1.techgrind.asia/scripts/rest.pike?request=register', {
+  .post('http://ngtg.techgrind.asia/scripts/rest.pike?request=register', {
     email: "gcitester@tester.com",
     fullname: "test user tg gci",
     group: "techgrind",

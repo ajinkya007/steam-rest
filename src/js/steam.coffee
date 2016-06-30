@@ -46,7 +46,7 @@ services.value 'version', '0.1'
 #  REST api documentation)
 
 services.factory 'steam', ($http, localStorageService) ->
-	baseurl = 'http://dev-back1.techgrind.asia/'
+	baseurl = 'http://ngtg.techgrind.asia/'
 	restapi = baseurl+'scripts/rest.pike?request='
 
 	# helperfunction to preprocess the returned data.

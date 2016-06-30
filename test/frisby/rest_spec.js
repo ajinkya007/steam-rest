@@ -88,7 +88,7 @@ function toBeDateIfExists (val) {
 //
 
 frisby.create('Test techgrind.events to be well-formed')
-  .get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=techgrind.events')
+  .get('http://ngtg.techgrind.asia/scripts/rest.pike?request=techgrind.events')
   .expectStatus(200)
   .expectJSON({
     "request": "techgrind.events",
@@ -104,7 +104,7 @@ frisby.create('Test techgrind.events to be well-formed')
 
 
 frisby.create('Test techgrind.events/order-by-date to be well-formed')
-  .get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=techgrind.events/order-by-date')
+  .get('http://ngtg.techgrind.asia/scripts/rest.pike?request=techgrind.events/order-by-date')
   .expectStatus(200)
   .expectJSON({
     "request": "techgrind.events/order-by-date",
@@ -120,7 +120,7 @@ frisby.create('Test techgrind.events/order-by-date to be well-formed')
 
 
 frisby.create('Testing an instance of an event to be well-formed')
-  .get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=techgrind.events.blug-coding-for-fun')
+  .get('http://ngtg.techgrind.asia/scripts/rest.pike?request=techgrind.events.blug-coding-for-fun')
   .expectStatus(200)
   .expectJSON({
     "request": "techgrind.events.blug-coding-for-fun",
