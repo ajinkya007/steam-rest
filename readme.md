@@ -28,6 +28,12 @@ step 3: install node packages:
 
 This installs all dependencies (including coffee) for our project into  the project's node_modules directory based on the 'package.json' file
 
+Install angular.js and other angular packages.
+
+    bower install angular
+    bower install angular-ui-router
+    bower install angular-bootstrap
+    bower install bootstrap    
 
 step 4: start the server
 
