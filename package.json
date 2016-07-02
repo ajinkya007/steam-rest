@@ -11,7 +11,10 @@
     "body-parser": "",
     "serve-static": "",
     "errorhandler": "",
-    "bower": ""
+    "bower": "",
+    "jasmine-node": "",
+    "frisby": "",
+    "karma": ""
   },
   "production_dirs": {
     "coffee_src": "src/",
