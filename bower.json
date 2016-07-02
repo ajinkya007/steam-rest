@@ -1,5 +1,5 @@
 {
-  "name": "CommunityCalendar",
+  "name": "bower",
   "version": "0.1",
   "private": true,
   "ignore": [
@@ -11,6 +11,9 @@
   ],
   "dependencies": {
     "angular": "",
-    "angular-route": "~1.4.8"
+    "angular-route": "~1.4.8",
+    "angular-ui-router": "",
+    "angular-bootstrap": "",
+    "bootstrap": ""
   }
 }
