@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ajinkya007/steam-rest.svg?branch=master)](https://travis-ci.org/ajinkya007/steam-rest)
+
 about this project
 ==================
 
