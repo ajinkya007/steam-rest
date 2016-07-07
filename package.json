@@ -13,8 +13,7 @@
     "errorhandler": "",
     "bower": "",
     "jasmine-node": "",
-    "frisby": "",
-    "karma": ""
+    "frisby": ""
   },
   "production_dirs": {
     "coffee_src": "src/",
