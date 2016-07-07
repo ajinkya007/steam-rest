@@ -1,7 +1,9 @@
-steam-rest examples nav
-
-<ul class="nav nav-pills nav-stacked" ng-controller="NavCtrl">
-	<li ng-repeat="item in mainMenu" ng-class="{ active: isSelected(item.url) }">
-		<a href="#/{{item.url}}" ng-click="selectTab(item.url)">{{item.name}}</a>
-	</li>
-</ul>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand"><b>sTeam-REST API</b></a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="about">About</a></li>
+    </ul>
+</nav>
