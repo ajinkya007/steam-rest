@@ -1,0 +1,323 @@
+<div class= "container">
+<h1>open-sTeam</h1>
+
+<p>Open sTeam is a collaboration platform developed at the University of Paderborn in germany. It is no longer developed at the university, but still in use. The original website http://www.open-steam.org has been closed but the archives can still be accessed at :</p>
+
+<pre><code>Archive of http://www.open-steam.org
+Archive of http://server.open-steam.org
+Archive of http://steamware.open-steam.org
+http://societyserver.org/
+</code></pre>
+
+<p>For further questions you can also contact us directly:</p>
+
+<pre><code>steam.devel @ societyserver.org (Developers mailing list)
+#steam-devel on irc.freenode.net (Developers IRC channel)
+</code></pre>
+
+<br >
+<h1>sTeam-REST API usage</h1>
+<blockquote>
+  <p>Base URL: http://hostname</p>
+
+<p>Resource URI: /REST/</p>
+<br />
+</blockquote>
+<p>Note:
+- Each user has a workroom at /home/{{user.name}}/ and each group has a workarea at /home/{{group.name}}/
+- Groups can be nested. For instance {{maingroup}}.{{subgroup}}</p>
+
+<h2>Register</h2>
+
+<ul>
+<li><p>Method: POST</p></li>
+<li><p>URL Params: register</p></li>
+<li><p>Request payload</p></li>
+</ul>
+
+<p><code>
+{
+    "email":"xx@yy.com",
+    "password":"temp",
+    "password2":"temp",
+    "group":"techgrind"
+}
+</code></p>
+
+<ul>
+<li>Response</li>
+</ul>
+
+<p><code>
+{
+    "request-method": "POST",
+    "request": "register",
+    "me": {
+        "icon": {
+            "oid": 159,
+            "size": 778,
+            "path": "/images/doctypes/user_unknown.jpg",
+            "description": "",
+            "title": "",
+            "name": "user_unknown.jpg",
+            "mime_type": "image/jpeg",
+            "class": "Document"
+        },
+        "documents": 0,
+        "oid": 88,
+        "vsession": "0",
+        "id": "guest",
+        "path": "/guest",
+        "fullname": "User 1",
+        "description": "Guest is the guest user.",
+        "name": "guest",
+        "links": 0,
+        "class": "User"
+    },
+    "error": "request not found",
+    "__version": [
+        "2013-07-09-1",
+        "20150507 08:28:06"
+    ],
+    "__date": "20150520 15:22:30"
+}
+</code></p>
+
+<h2>Login</h2>
+
+<ul>
+<li><p>Method: GET</p></li>
+<li><p>URL Params: login</p></li>
+<li><p>Example call</p></li>
+</ul>
+
+<p><code>
+curl -D- -u temp:temp -X GET -H "Content-Type: application/json" Base URL : http://hostname/REST/login
+</code></p>
+
+<ul>
+<li><p>Supplying the Authentication headers</p></li>
+<li><p>Build a string in form of username:password</p></li>
+<li>Base64 encode the string</li>
+<li>Supply an "Authorization" header with content "Basic " followed by the encoded string. For example, the string "temp:temp" encodes to "dGVtcDp0ZW1w" in base64, so you would make the request as follows.</li>
+</ul>
+
+<p><code>
+curl -D- -X GET -H "Authorization: Basic dGVtcDp0ZW1w" -H "Content-Type: application/json" "http://hostname/REST/login"
+</code></p>
+
+<ul>
+<li>Response</li>
+</ul>
+
+<p><code>
+{
+    "request-method": "GET",
+    "me": {
+        "icon": {
+            "oid": 159,
+            "size": 778,
+            "path": "/images/doctypes/user_unknown.jpg",
+            "description": "",
+            "title": "",
+            "name": "user_unknown.jpg",
+            "mime_type": "image/jpeg",
+            "class": "Document"
+        },
+        "documents": 0,
+        "oid": 11111,
+        "vsession": "0",
+        "id": "username",
+        "path": "/username",
+        "fullname": "fullname",
+        "description": "temp",
+        "name": "name",
+        "links": 0,
+        "class": "User"
+    },
+    "error": "request not found",
+    "__date": "20150520 15:25:19",
+    "login": "login successful",
+    "request": "login",
+    "__version": [
+        "2013-07-09-1",
+        "20150507 08:28:06"
+    ]
+}
+</code></p>
+
+<h2>Accessing a Room</h2>
+
+<ul>
+<li><p>Method: GET</p></li>
+<li><p>URL Params: /path/to/room</p></li>
+<li><p>Response:</p></li>
+</ul>
+
+<p><code>
+{
+    "request-method": "GET",
+    "me": {
+        "icon": {
+            "oid": 159,
+            "size": 778,
+            "path": "/images/doctypes/user_unknown.jpg",
+            "description": "",
+            "title": "",
+            "name": "user_unknown.jpg",
+            "mime_type": "image/jpeg",
+            "class": "Document"
+        },
+        "documents": 0,
+        "oid": 88,
+        "vsession": "0",
+        "id": "guest",
+        "path": "/guest",
+        "fullname": "User 1",
+        "description": "Guest is the guest user.",
+        "name": "guest",
+        "links": 0,
+        "class": "User"
+    },
+    "inventory": [
+        {
+            "icon": {
+                "oid": 174,
+                "size": 1435,
+                "path": "/images/doctypes/type_generic.gif",
+                "description": "",
+                "title": "",
+                "name": "type_generic.gif",
+                "mime_type": "image/gif",
+                "class": "Document"
+            },
+            "oid": 8995,
+            "size": 167,
+            "path": "/path/to/document/in/a/room",
+            "description": "this is a simple text file",
+            "title": "this is a simple text file",
+            "name": "hello-world",
+            "mime_type": "text/plain",
+            "class": "Document"
+        }
+    ],
+    "__date": "20150522 07:00:08",
+    "request": "/path/to/room",
+    "__version": [
+        "2013-07-09-1",
+        "20150507 08:28:06"
+    ],
+    "object": {
+        "icon": {
+            "oid": 179,
+            "size": 1256,
+            "path": "/images/doctypes/type_area.gif",
+            "description": "",
+            "title": "",
+            "name": "type_area.gif",
+            "mime_type": "image/gif",
+            "class": "Document"
+        },
+        "documents": 1,
+        "oid": 8989,
+        "path": "/path/to/room",
+        "description": "",
+        "name": "room name",
+        "links": 0,
+        "class": "Room"
+    }
+}
+</code></p>
+
+<h2>Access a Document in a room</h2>
+
+<ul>
+<li><p>METHOD: GET</p></li>
+<li><p>URL Params: /path/to/document</p></li>
+<li><p>Response:</p></li>
+</ul>
+
+<p><code>
+{
+    "request-method": "GET",
+    "me": {
+        "icon": {
+            "oid": 159,
+            "size": 778,
+            "path": "/images/doctypes/user_unknown.jpg",
+            "description": "",
+            "title": "",
+            "name": "user_unknown.jpg",
+            "mime_type": "image/jpeg",
+            "class": "Document"
+        },
+        "documents": 0,
+        "oid": 88,
+        "vsession": "0",
+        "id": "guest",
+        "path": "/guest",
+        "fullname": "User 1",
+        "description": "Guest is the guest user.",
+        "name": "guest",
+        "links": 0,
+        "class": "User"
+    },
+    "__date": "20150522 08:58:03",
+    "request": "/path/to/document",
+    "environment": {
+        "icon": {
+            "oid": 179,
+            "size": 1256,
+            "path": "/images/doctypes/type_area.gif",
+            "description": "",
+            "title": "",
+            "name": "type_area.gif",
+            "mime_type": "image/gif",
+            "class": "Document"
+        },
+        "documents": 3,
+        "oid": 8989,
+        "path": "/path/to/room",
+        "description": "",
+        "name": "room name",
+        "links": 0,
+        "class": "Room"
+    },
+    "__version": [
+        "2013-07-09-1",
+        "20150507 08:28:06"
+    ],
+    "object": {
+        "icon": {
+            "oid": 174,
+            "size": 1435,
+            "path": "/images/doctypes/type_generic.gif",
+            "description": "",
+            "title": "",
+            "name": "type_generic.gif",
+            "mime_type": "image/gif",
+            "class": "Document"
+        },
+        "oid": 11198,
+        "content": "this is test file to become acquainted with the interface.",
+        "size": 58,
+        "path": "/path/to/document",
+        "description": "this is a test document",
+        "title": "this is a test document",
+        "name": "test-document",
+        "mime_type": "text/plain",
+        "class": "Document"
+    }
+}
+</code></p>
+
+<h2>Creating Room</h2>
+
+<h2>Creating Containers</h2>
+
+<h2>Creating Documents</h2>
+
+<h2>Creating Groups</h2>
+
+<h2>Deleting Objects</h2>
+</div>

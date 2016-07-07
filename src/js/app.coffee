@@ -20,4 +20,8 @@ app.config ['$urlRouterProvider', '$stateProvider', ($urlRouterProvider, $stateP
 			url: '/register'
 			templateUrl: 'partials/register.html'
 			controller: 'RegisterCtrl'
+
+	$stateProvider.state 'about',
+			url: '/about'
+			templateUrl: 'partials/about.html'
 ]
