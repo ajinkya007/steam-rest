@@ -14,7 +14,7 @@ app.config ['$urlRouterProvider', '$stateProvider', ($urlRouterProvider, $stateP
 	$stateProvider.state 'home',
 			url: '/home'
 			templateUrl: 'partials/home.html'
-			controller: 'HomeCtrl'
+			controller: 'NavCtrl'
 
 	$stateProvider.state 'register',
 			url: '/register'
