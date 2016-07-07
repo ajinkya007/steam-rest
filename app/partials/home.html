@@ -1,1 +1,9 @@
-<p>sTeam-REST API</p>
+<div class="jumbotron">
+<h1>sTeam-REST API Examples</h1>
+
+<ul class="nav nav-pills nav-stacked" ng-controller="NavCtrl">
+	<li ng-repeat="item in mainMenu" ng-class="{ active: isSelected(item.url) }">
+		<a href="#/{{item.url}}" ng-click="selectTab(item.url)">{{item.name}}</a>
+	</li>
+</ul>
+</div>
