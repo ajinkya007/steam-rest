@@ -24,6 +24,7 @@
   "devDependencies": {
   },
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "test": "jasmine-node --verbose test"
   }
 }
