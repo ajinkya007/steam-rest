@@ -1,4 +1,7 @@
-about this project
+[![Build Status](https://travis-ci.org/societyserver/steam-rest.svg?branch=master)](https://travis-ci.org/societyserver/steam-rest)
+
+
+About this project
 ==================
 
 this project contains a set of examples and tests for the RESTful API for the
@@ -10,7 +13,7 @@ deployment can be done as static javascript files, and does not need any kind of
 the back-end is a RESTful API written for the sTeam server as used by techgrind.asia
 
 
-development instructions
+Development instructions
 ========================
 
 step 1: install node.js
