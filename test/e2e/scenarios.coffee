@@ -4,10 +4,18 @@ angular.scenario.dsl 'expectClass', -> (klass, selector, label) ->
 angular.scenario.dsl 'expectViewText', -> (text, selector, label) ->
 	expect(element("[ng-view] "+ (selector || ''), label).text()).toMatch text
 
-describe 'Tech Grind app', ->
+describe 'sTeam REST API app', ->
 	describe 'root page', ->
 		beforeEach -> browser().navigateTo '/'
 		it 'shows the home page', -> expect(browser().location().url()).toBe "/home"
+	
+	describe 'Home page', ->
+		beforeEach -> browser().navigateTo '#/home'
+		it 'Shows the home page', -> expect(browser().location().url()).toBe "/home"
+
+	describe 'About page', ->
+		beforeEach -> browser().navigateTo '#/about'
+		it 'Shows the about page', -> expect(browser().location().url()).toBe "/about"
 
 	describe 'register and activate', ->
 		beforeEach -> browser().navigateTo '#/register'
@@ -21,24 +29,4 @@ describe 'Tech Grind app', ->
 			element('#activation_link').click()
 			expect(element('#activation').text()).toContain 'user is activated'
 
-	describe 'home page', ->
-		beforeEach -> browser().navigateTo '#/home'
-		it 'shows Top happenings', -> expectViewText "Top Happenings"
-		it 'shows Latest Content', -> expectViewText "Latest Content"
-		it 'highlights the home menu and only that', ->
-			expectClass 'active', '#menu #home'
-			expect(element('#menu [class="active"]').count()).toBe 1
 
-	describe 'regions', ->
-		beforeEach -> browser().navigateTo '#/regions'
-
-	describe 'a specific regions', ->
-		beforeEach -> browser().navigateTo '#/regions/thailand'
-
-	describe 'calendar', ->
-	describe 'events', ->
-	describe 'resources', ->
-	describe 'media', ->
-	describe 'partners', ->
-		xit 'shows Global Partners'
-		xit 'has Connect With Us form'
