@@ -129,3 +129,22 @@ frisby.create('Testing an instance of an event to be well-formed')
     "event": testEvent
   })
   .toss();
+
+
+frisby.create('Testing login API calls')
+  .get('http://steam.realss.com/scripts/rest.pike?request=login', {
+    userid: "aj007",
+    password: "ajinkya"
+  }, {json: true})
+  .expectStatus(200)
+  .expectJSON({
+    "request-method": "GET",
+    "request": "login",
+    "me": testMe,
+    "__version": testRegistrationVersion,
+    "__date": testRegistrationDate,
+    "error": "request not found",
+    "login": "user not logged in"
+  })
+  .toss();
+

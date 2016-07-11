@@ -2,7 +2,7 @@ angular.scenario.dsl 'expectClass', -> (klass, selector, label) ->
 	expect(element(selector, label).prop('classList')).toContain klass
 
 angular.scenario.dsl 'expectViewText', -> (text, selector, label) ->
-	expect(element("[ui-view] "+ (selector || ''), label).text()).toMatch text
+	expect(element("[ng-view] "+ (selector || ''), label).text()).toMatch text
 
 describe 'sTeam REST API app', ->
 	describe 'root page', ->
