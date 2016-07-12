@@ -102,7 +102,6 @@ frisby.create('Test techgrind.events to be well-formed')
   })
   .toss();
 
-
 frisby.create('Test techgrind.events/order-by-date to be well-formed')
   .get('http://ngtg.techgrind.asia/scripts/rest.pike?request=techgrind.events/order-by-date')
   .expectStatus(200)
@@ -118,7 +117,6 @@ frisby.create('Test techgrind.events/order-by-date to be well-formed')
   })
   .toss();
 
-
 frisby.create('Testing an instance of an event to be well-formed')
   .get('http://ngtg.techgrind.asia/scripts/rest.pike?request=techgrind.events.blug-coding-for-fun')
   .expectStatus(200)
@@ -130,8 +128,8 @@ frisby.create('Testing an instance of an event to be well-formed')
   })
   .toss();
 
-
-frisby.create('Testing login API calls')
+//Test if the user can login
+frisby.create('Testing login API calls.')
   .get('http://steam.realss.com/scripts/rest.pike?request=login', {
     userid: "aj007",
     password: "ajinkya"
@@ -146,5 +144,114 @@ frisby.create('Testing login API calls')
     "error": "request not found",
     "login": "user not logged in"
   })
+  .toss();
+
+//Test the user home directory.
+frisby.create('Testing user home directory.')
+  .get('http://steam.realss.com/scripts/rest.pike?request=aj007', {
+    userid: "aj007",
+    password: "ajinkya"
+  }, {json: true})
+  .expectStatus(200)
+  .expectJSON({
+    "request-method": "GET",
+    "request": "aj007",
+    "me": testMe,
+    "__version": testRegistrationVersion,
+    "__date": testRegistrationDate,
+  })
+  .toss();
+
+//Test whether a user workarea exists or not. Here aj workarea has been created by the user.
+frisby.create('Testing user created workarea.')
+  .get('http://steam.realss.com/scripts/rest.pike?request=aj007/aj', {
+    userid: "aj007",
+    password: "ajinkya"
+  }, {json: true})
+  .expectStatus(200)
+  .expectJSON({
+    "request-method": "GET",
+    "request": "aj007/aj",
+    "me": testMe,
+    "__version": testRegistrationVersion,
+    "__date": testRegistrationDate,
+  })
+  .toss();
+
+//Test whether a user created container exists or not.
+frisby.create('Testing a user created container.')
+  .get('http://steam.realss.com/scripts/rest.pike?request=aj007/container', {
+    userid: "aj007",
+    password: "ajinkya"
+  }, {json: true})
+  .expectStatus(200)
+  .expectJSON({
+    "request-method": "GET",
+    "request": "aj007/container",
+    "me": testMe,
+    "__version": testRegistrationVersion,
+    "__date": testRegistrationDate,
+    })
+  .toss();
+
+//Test whether a user created document exists or not.
+frisby.create('Testing a user created document.')
+  .get('http://steam.realss.com/scripts/rest.pike?request=aj007/abc.pike', {
+    userid: "aj007",
+    password: "ajinkya"
+  }, {json: true})
+  .expectStatus(200)
+  .expectJSON({
+    "request-method": "GET",
+    "request": "aj007/abc.pike",
+    "me": testMe,
+    "__version": testRegistrationVersion,
+    "__date": testRegistrationDate,
+    })
+  .toss();
+
+//Test whether a user created image(object of any mime-type) inside a container exists or not.
+frisby.create('Testing a user created document inside a container.')
+  .get('http://steam.realss.com/scripts/rest.pike?request=aj007/container/Image.jpeg', {
+    userid: "aj007",
+    password: "ajinkya"
+  }, {json: true})
+  .expectStatus(200)
+  .expectJSON({
+    "request-method": "GET",
+    "request": "aj007/container/Image.jpeg",
+    "me": testMe,
+    "__version": testRegistrationVersion,
+    "__date": testRegistrationDate,
+    })
+  .toss();
+
+//Test whether a user created document exists or not.
+//The group name and the subgroups can be queried.
+//eg. GroupName: groups, Subgroup: test.
+//The subgroup should be appended using "." to the groupname.
+frisby.create('Testing user created group and subgroup.')
+  .get('http://steam.realss.com/scripts/rest.pike?request=groups.test')
+  .expectStatus(200)
+  .expectJSON({
+    "request-method": "GET",
+    "request": "groups.test",
+    "me": testMe,
+    "__version": testRegistrationVersion,
+    "__date": testRegistrationDate,
+    })
+  .toss();
+
+//Here "groups" is a Groupname and "gsoc" is a subgroup of it.
+frisby.create('Testing user created group and subgroup.')
+  .get('http://ngtg.techgrind.asia/scripts/rest.pike?request=groups.gsoc')
+  .expectStatus(200)
+  .expectJSON({
+    "request-method": "GET",
+    "request": "groups.gsoc",
+    "me": testMe,
+    "__version": testRegistrationVersion,
+    "__date": testRegistrationDate,
+    })
   .toss();
 
