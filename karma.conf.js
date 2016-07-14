@@ -25,6 +25,7 @@ module.exports = function(config) {
       'app/lib/components/jquery/jquery.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'src/js/**/*.coffee',
+      'test/unit/**/*Spec.coffee'
     ],
 
 
