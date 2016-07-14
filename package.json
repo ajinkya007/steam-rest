@@ -20,10 +20,16 @@
     "src": "app/",
     "dest": "app_production/"
   },
-  "devDependencies": {
-  },
   "scripts": {
     "postinstall": "bower install",
     "test": "jasmine-node --verbose test"
+  },
+  "devDependencies": {
+    "jasmine-core": "",
+    "karma": "",
+    "karma-chrome-launcher": "",
+    "karma-coffee-preprocessor": "",
+    "karma-jasmine": "",
+    "karma-spec-reporter": ""
   }
 }
