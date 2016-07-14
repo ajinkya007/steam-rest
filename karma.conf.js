@@ -23,7 +23,7 @@ module.exports = function(config) {
       'app/lib/components/bootstrap/dist/css/bootstrap.min.css',
       'app/lib/components/angular-local-storage/dist/angular-local-storage.js',
       'app/lib/components/jquery/jquery.js',
-      'node_modules/angular-mocks/angular-mocks.js',
+      'app/lib/components/angular-mocks/angular-mocks.js',
       'src/js/**/*.coffee',
       'test/unit/**/*Spec.coffee'
     ],
