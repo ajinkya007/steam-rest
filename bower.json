@@ -14,6 +14,9 @@
     "angular-route": "~1.4.8",
     "angular-ui-router": "",
     "angular-bootstrap": "",
-    "bootstrap": ""
+    "bootstrap": "",
+    "angular-mocks":"",
+    "angular-scenario":"",
+    "angular-local-storage":""
   }
 }
