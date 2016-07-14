@@ -15,8 +15,10 @@
     "angular-ui-router": "",
     "angular-bootstrap": "",
     "bootstrap": "",
-    "angular-mocks":"",
-    "angular-scenario":"",
-    "angular-local-storage":""
+    "angular-mocks": "",
+    "angular-scenario": "",
+    "angular-local-storage": "",
+    "jquery": "",
+    "jasmine": ""
   }
 }
