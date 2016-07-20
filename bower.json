@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "angular": "",
-    "angular-route": "~1.4.8",
+    "angular-route": "",
     "angular-ui-router": "",
     "angular-bootstrap": "",
     "bootstrap": "",
